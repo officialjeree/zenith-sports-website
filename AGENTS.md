@@ -20,3 +20,6 @@
 - Owner permissions live only in user_roles and RLS, never browser storage or profile metadata.
 - Keep public product photo serving behind a controlled storage read endpoint when workspace settings prohibit public buckets; missing photos redirect to a bundled fallback.
 - Bundle all site images as files in src/assets or public (no platform-hosted asset pointers) so the app renders on any host.
+
+- Jersey photo recognition runs only after an owner-initiated upload through an owner-authorized server function, selecting an existing manufacturer brand conservatively and leaving it editable; this avoids confusing sponsors with manufacturers or publishing uncertain guesses.
+- AI providers and uploaded photo bytes stay server-only; terminal access denials persist a private storage pause marker across deployments to prevent repeat billed requests.

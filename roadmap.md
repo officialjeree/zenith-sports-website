@@ -15,3 +15,7 @@
 - [ ] Paystack test payments and delivery checkout — blocked by store test credentials and delivery rates
 - [ ] Confirmation emails — blocked by an owned email domain and store recipient address
 - [ ] Owner access assignment and signed-in owner testing — blocked by chosen owner account
+- [x] Center Quick view icon and label within the product photo
+- [x] Identify manufacturer logos on uploaded jersey photos and prefill editable brand; Arsenal recognition verified as Adidas
+- [ ] Verify signed-in owner upload end-to-end — blocked by no auth users or assigned owner account
+- [ ] Enable photo recognition on external Vercel deployment — requires server-only LOVABLE_API_KEY and redeployment there
