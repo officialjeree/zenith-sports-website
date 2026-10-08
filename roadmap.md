@@ -1,4 +1,6 @@
 # Zenithsports NG
+- [x] Apply requested size controls, stock editing, size guides and category filters
+- [x] Verify lightweight league slider and mobile shopping flow
 - [x] Store design, shared navigation, homepage and league slider
 - [x] Cloud catalog with 24 samples, per-size inventory and secure roles
 - [x] Category, brand, product pages and size guides

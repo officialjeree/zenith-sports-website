@@ -374,6 +374,10 @@ export type Database = {
         }
         Returns: Json
       }
+      save_product_inventory: {
+        Args: { p_id?: string; p_product: Json; p_sizes: Json }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
