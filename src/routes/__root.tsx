@@ -84,12 +84,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Zenithsports NG" },
       { name: "description", content: "Your sportswear destination in Lagos" },
-      { name: "author", content: "Lovable" },
+      { name: "author", content: "Zenithsports NG" },
       { property: "og:title", content: "Zenithsports NG" },
       { property: "og:description", content: "Your sportswear destination in Lagos" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
