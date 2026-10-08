@@ -1,0 +1,2 @@
+import {createFileRoute} from '@tanstack/react-router';import {CartContents,Breadcrumb} from '@/components/store-shell';import {metadata} from '@/lib/catalog';
+export const Route=createFileRoute('/cart')({head:()=>metadata('Your shopping bag','Review your selected gear and sizes before checking out at Zenithsports NG.'),component:()=> <main className="page-content"><Breadcrumb title="Your bag"/><h1>YOUR BAG.</h1><div className="max-w-3xl mx-auto"><CartContents/></div></main>});
