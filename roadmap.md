@@ -15,3 +15,5 @@
 - [ ] Paystack test payments and delivery checkout — blocked by store test credentials and delivery rates
 - [ ] Confirmation emails — blocked by an owned email domain and store recipient address
 - [ ] Owner access assignment and signed-in owner testing — blocked by chosen owner account
+- [x] Center Quick view icon and label within the product photo
+- [ ] Identify manufacturer logos on uploaded jersey photos and prefill editable brand
