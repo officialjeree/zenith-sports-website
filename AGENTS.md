@@ -18,4 +18,5 @@
 - Centralize size ranges and conversion charts in the sizing module; replace product and size inventory together in an owner-authorized transaction to avoid obsolete variants after size-type changes.
 - Use CSS-only league slides with separate optimized desktop/mobile WebP assets to keep the first screen lightweight.
 - Owner permissions live only in user_roles and RLS, never browser storage or profile metadata.
-- Keep public product photo serving behind a controlled storage read endpoint when workspace settings prohibit public buckets.
+- Keep public product photo serving behind a controlled storage read endpoint when workspace settings prohibit public buckets; missing photos redirect to a bundled fallback.
+- Bundle all site images as files in src/assets or public (no platform-hosted asset pointers) so the app renders on any host.
