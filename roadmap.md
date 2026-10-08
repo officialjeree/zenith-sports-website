@@ -1,10 +1,12 @@
 # Zenithsports NG
-- [ ] Store design, shared navigation, homepage and league slider
-- [ ] Cloud catalog with 24 samples, per-size inventory and secure roles
-- [ ] Category, brand, product pages and size guides
-- [ ] Cart, wishlist, accounts, checkout and order records
-- [ ] Owner product and order management
-- [ ] Contact, store information and policy pages
-- [ ] Verify shopping flow and mobile layout
-- [ ] Apply uploaded logo to header, footer and favicon
-- [ ] Paystack test credentials and email delivery configuration (awaiting owner)
+- [x] Store design, shared navigation, homepage and league slider
+- [x] Cloud catalog with 24 samples, per-size inventory and secure roles
+- [x] Category, brand, product pages and size guides
+- [x] Cart, wishlist, accounts, checkout and order records
+- [x] Owner product and order management
+- [x] Contact, store information and policy pages
+- [x] Verify shopping flow and mobile layout
+- [x] Apply uploaded logo to header, footer and favicon
+- [ ] Paystack test payments and delivery checkout — blocked by store test credentials and delivery rates
+- [ ] Confirmation emails — blocked by an owned email domain and store recipient address
+- [ ] Owner access assignment and signed-in owner testing — blocked by chosen owner account
