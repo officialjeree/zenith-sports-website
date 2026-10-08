@@ -1,24 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute,Link } from '@tanstack/react-router';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { ArrowRight,ArrowUpRight } from 'lucide-react';
+import { catalogQuery,metadata,brands,slugify,productImage } from '@/lib/catalog';
+import { HeroSlider } from '@/components/hero-slider';
+import { ProductCard } from '@/components/product-card';
+import { Button } from '@/components/ui/button';
+import promo from '@/assets/bundesliga.webp';
+export const Route=createFileRoute('/')({head:()=>metadata('Zenithsports NG — Your Game. Your Gear.','Shop football jerseys, boots, sportswear and fitness gear from Zenithsports NG in Yaba, Lagos.'),loader:({context})=>context.queryClient.ensureQueryData(catalogQuery),errorComponent:()=> <div className="page-content"><h2>THE COLLECTION IS TAKING A MOMENT</h2><p>Please refresh to try again.</p></div>,notFoundComponent:()=> <p>Collection not found.</p>,component:Home});
+function Home(){const {data:products}=useSuspenseQuery(catalogQuery);const categories=[{name:'FOOTBALL',slug:'football',key:'boots',copy:'Made for match day.'},{name:'SPORTSWEAR',slug:'clothing',key:'tracksuit',copy:'On and off the pitch.'},{name:'FOOTWEAR',slug:'footwear',key:'trainers',copy:'Find your next step.'},{name:'GYM & FITNESS',slug:'gym-fitness',key:'dumbbell',copy:'Stronger every day.'}];return <main><HeroSlider/><section className="home-section category-section"><div className="section-heading"><div><p className="eyebrow">EVERY SPORT. EVERY ATHLETE.</p><h2>FIND YOUR GAME.</h2></div><Link to="/category/$slug" params={{slug:'all'}}>Shop all categories <ArrowRight size={17}/></Link></div><div className="category-grid">{categories.map(c=>{const p=products.find(p=>p.image_key===c.key);return <Link key={c.slug} className="category-tile" to="/category/$slug" params={{slug:c.slug}}>{p&&<img src={productImage(p)} alt={c.name.toLowerCase()+' equipment'} loading="lazy" width={512} height={512}/>}<div><h3>{c.name}</h3><p>{c.copy}</p></div><ArrowUpRight size={22}/></Link>})}</div></section><section className="home-section"><div className="section-heading"><div><p className="eyebrow">FRESH GEAR. NEW POSSIBILITIES.</p><h2>JUST LANDED.</h2></div><Link to="/category/$slug" params={{slug:'new-arrivals'}}>View new arrivals <ArrowRight size={17}/></Link></div><div className="product-grid">{products.slice(0,4).map(p=><ProductCard key={p.id} product={p}/>)}</div></section><section className="brand-section"><p className="eyebrow text-center">THE NAMES YOU KNOW. THE QUALITY YOU TRUST.</p><div className="brand-strip">{brands.map(b=><Link to="/brand/$brand" params={{brand:slugify(b)}} key={b} className={'brand-wordmark '+slugify(b)}>{b==='Adidas'?<><span className="adidas-mark">▰▰▰</span>adidas</>:b==='Nike'?<span className="nike-wordmark">NIKE</span>:b}</Link>)}</div></section><section className="promo-banner"><img src={promo} alt="Football action on the pitch" loading="lazy" width={1600} height={853}/><div className="hero-shade"/><div><p className="hero-eyebrow">FROM OJUELEGBA TO EVERY PITCH.</p><h2>ALL IN.<br/>ALL GAME.</h2><p>Gear up for the moments that matter.</p><Button asChild variant="hero" size="lg"><Link to="/category/$slug" params={{slug:'football'}}>Shop football<ArrowRight/></Link></Button></div></section><section className="home-section"><div className="section-heading"><div><p className="eyebrow">TRIED. TESTED. LOVED.</p><h2>THE CROWD FAVOURITES.</h2></div><Link to="/category/$slug" params={{slug:'all'}} search={{sort:'best'}}>Shop best sellers <ArrowRight size={17}/></Link></div><div className="product-grid">{products.filter(p=>p.best_seller).slice(0,4).map(p=><ProductCard key={p.id} product={p}/>)}</div></section></main>}
