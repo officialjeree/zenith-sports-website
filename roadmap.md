@@ -1,5 +1,5 @@
 # Zenithsports NG
-- [ ] Replace generic demo jersey photos with recognizable actual club home/away kits and verify shopping views
+- [ ] Replace generic demo jersey photos with recognizable actual club home/away kits, feature jerseys on homepage and verify shopping views
 - [x] Add home/away jersey choices with matching color photos; verify kit/color through sample pickup order
 - [ ] Client review link without Lovable — blocked by an owned or purchased custom domain
 - [x] Apply requested size controls, stock editing, size guides and category filters
