@@ -8,6 +8,13 @@
       "when": 1791440820787,
       "tag": "0000_zenith_store_catalog_inventory_orders",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791441174243,
+      "tag": "0001_product_image_storage_security",
+      "breakpoints": true
     }
   ]
 }
