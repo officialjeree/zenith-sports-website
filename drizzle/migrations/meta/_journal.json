@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791440820787,
+      "tag": "0000_zenith_store_catalog_inventory_orders",
+      "breakpoints": true
+    }
+  ]
 }
