@@ -6,4 +6,5 @@
 - [ ] Owner product and order management
 - [ ] Contact, store information and policy pages
 - [ ] Verify shopping flow and mobile layout
-- [ ] Real logo, Paystack test credentials and email delivery configuration (awaiting owner)
+- [ ] Apply uploaded logo to header, footer and favicon
+- [ ] Paystack test credentials and email delivery configuration (awaiting owner)
