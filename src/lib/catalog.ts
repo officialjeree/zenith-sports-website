@@ -10,7 +10,7 @@ import {jerseyPhoto} from './jersey-options';
 export const catalogQuery=queryOptions({queryKey:['catalog'],queryFn:()=>getCatalog(),staleTime:30000});
 export type Product=Awaited<ReturnType<typeof getCatalog>>[number];
 const images:Record<string,string>={jersey,boots,trainers,tracksuit,dumbbell,ball};
-export const productImage=(p:Product)=>{const custom=p.images as string[];return custom?.[0]||jerseyPhoto(p.category,p.colors[0]??'')||images[p.image_key]||jersey;};
+export const productImage=(p:Product,color=p.colors[0]??'')=>{const custom=p.images as string[];return custom?.[0]||jerseyPhoto(p.category,color)||images[p.image_key]||jersey;};
 export const price=(p:Product)=>p.sale_price??p.price;
 export const money=(value:number)=>'₦'+value.toLocaleString('en-NG');
 export const brands=['Nike','Adidas','Under Armour','Puma','New Balance','Umbro'];
