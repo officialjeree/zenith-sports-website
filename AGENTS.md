@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Store architecture
+- Jersey home/away choices use a canonical kit-and-color label in the existing color field so cart and order views retain both; illustrative color photos never override uploaded product photos.
 - Use TanStack leaf routes for storefront collections and information pages; each defines its own share metadata for direct sharing.
 - Public catalog reads use an anonymous server client with RLS; privileged mutations use authenticated owner-role checks.
 - Guest cart access uses a high-entropy capability token hashed in storage; order creation locks cart and size inventory atomically to prevent overselling.
