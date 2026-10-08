@@ -1,5 +1,6 @@
 import { createOpenAI } from "@ai-sdk/openai";
-import { streamText, type ModelMessage } from "ai";
+import { streamText, Output, type ModelMessage } from "ai";
+import { z } from "zod";
 
 import {
   createLovableAiGatewayRunIdFetch,
@@ -12,6 +13,8 @@ export function createResponsesCall(
   config: { baseURL: string; apiKey: string; model: string },
   messages: ModelMessage[],
   instructions?: string,
+  schema?: z.ZodObject<{ brand: z.ZodNullable<z.ZodString>; confidence: z.ZodNumber; reason: z.ZodString }>,
+  onError?: (event: { error: unknown }) => void,
 ) {
   const runIdFetch = createLovableAiGatewayRunIdFetch(getLovableAiGatewayRunId(request));
   const provider = createOpenAI({
@@ -26,14 +29,16 @@ export function createResponsesCall(
     // AI SDK 6 lacks `instructions`: rename this key to `system` there.
     ...(instructions ? { instructions } : {}),
     messages,
-    abortSignal: request.signal,
+    maxRetries: 0,
+    ...(schema ? { output: Output.object({ schema }) } : {}),
+    ...(onError ? { onError } : {}),
     providerOptions: {
       openai: {
         store: false,
         ...(reasoning
           ? {
               forceReasoning: true,
-              reasoningEffort: "medium",
+              reasoningEffort: "low",
               reasoningSummary: "auto",
               include: ["reasoning.encrypted_content"],
             }
